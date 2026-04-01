@@ -38,8 +38,12 @@
             </div>
 
             <div class="action-zone">
-                <button onclick="generarFrase()">Ejecutar: Frase Aleatoria</button>
-                <p id="frase-display" class="frase-output"></p>
+                <button id ="btn-main" onclick = "generarFrase()">Generar: Frase Aleatoria</button>
+                <div id = "loader" class = "loader" style = "display: none;">
+                    <span class = "spinner"></span>
+                    <p>Cargando...</p>
+                </div>
+                <p id = "frase-display" class = "frase-output"></p>
             </div>
         </main>
         

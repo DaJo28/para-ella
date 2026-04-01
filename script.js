@@ -49,25 +49,13 @@ const baseDeDatos = {
     ]
 };
 function generarFrasePorColor(colorSeleccionado) {
-    const frasesDelColor = baseDeDatos[colorSeleccionado];
-    const fraseAzar = frasesDelColor[Math.floor(Math.random() * frasesDelColor.length)];
-
-    mostrarEnPantalla(colorSeleccionado, fraseAzar);
+    ejecutarAnimacion(colorSeleccionado);
 }
 
 function generarFrase() {
     const colores = Object.keys(baseDeDatos);
     const colorAzar = colores[Math.floor(Math.random() * colores.length)];
-    const frasesDelColor = baseDeDatos[colorAzar];
-    const fraseAzar = frasesDelColor[Math.floor(Math.random() * frasesDelColor.length)];
-    
-    const display = document.getElementById('frase-display');
-    display.style.opacity = 0;
-    
-    setTimeout(() => {
-        display.innerText = `[${colorAzar.toUpperCase()}]: "${fraseAzar}"`;
-        display.style.opacity = 1;
-    }, 200);
+    ejecutarAnimacion(colorAzar);
 }
 
 function mostrarEnPantalla(color, frase) {
@@ -78,4 +66,27 @@ function mostrarEnPantalla(color, frase) {
         display.innerHTML = '<span style = "text-transform: uppercase; font-weight: bold;">[${color}]:</span> "${frase}"';
         display.style.opacity = 1;
     }, 200);
+}
+
+function ejecutarAnimacion(color) {
+    const loader = document.getElementById('loader');
+    const display = document.getElementById('frase-display');
+    const btn = document.getElementById('btn-main');
+
+    // 1. Limpiar pantalla y mostrar loader
+    display.style.opacity = 0;
+    loader.style.display = 'flex';
+    btn.disabled = true; // Evita clics repetidos durante la carga
+
+    // 2. Simular tiempo de procesamiento
+    setTimeout(() => {
+        const frasesDelColor = baseDeDatos[color];
+        const fraseAzar = frasesDelColor[Math.floor(Math.random() * frasesDelColor.length)];
+        
+        loader.style.display = 'none';
+        btn.disabled = false;
+        
+        display.innerHTML = `<span style="color:var(--accent)">[${color.toUpperCase()}]:</span> "${fraseAzar}"`;
+        display.style.opacity = 1;
+    }, 800); // 800 milisegundos de "carga"
 }
