@@ -1,0 +1,85 @@
+:root {
+    --bg: #0d1117;
+    --card-bg: #161b22;
+    --text: #c9d1d9;
+    --accent: #58a6ff;
+    --comment: #8b949e;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.terminal {
+    background: var(--card-bg);
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.header {
+    background: #21262d;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+.content { padding: 25px; }
+
+h1 { color: var(--accent); font-size: 1.4rem; }
+.comment { color: var(--comment); font-style: italic; font-size: 0.9rem; }
+
+.grid-colores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.card {
+    padding: 15px;
+    border-radius: 8px;
+    color: #000;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.card:hover { transform: scale(1.03); }
+
+/* Clases de colores */
+.rosado { background: #ffb7c5; } .amarillo { background: #ffeb3b; }
+.naranja { background: #ff9800; } .am-palido { background: #fff9c4; }
+.v-claro { background: #ccff90; } .v-palido { background: #cce3bf; }
+.azul { background: #42a5f5; } .celeste { background: #b3e5fc; }
+
+.action-zone { margin-top: 30px; text-align: center; }
+button {
+    background: var(--accent);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.frase-output {
+    margin-top: 15px;
+    min-height: 40px;
+    color: #a5d6ff;
+    font-style: italic;
+}
