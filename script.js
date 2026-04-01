@@ -48,6 +48,12 @@ const baseDeDatos = {
         "Una y millones de veces más elegiría estar a su lado, mi amor"
     ]
 };
+function generarFrasePorColor(colorSeleccionado) {
+    const frasesDelColor = baseDeDatos[colorSeleccionado];
+    const fraseAzar = frasesDelColor[Math.floor(Math.random() * frasesDelColor.length)];
+
+    mostrarEnPantalla(colorSeleccionado, fraseAzar);
+}
 
 function generarFrase() {
     const colores = Object.keys(baseDeDatos);
@@ -60,6 +66,16 @@ function generarFrase() {
     
     setTimeout(() => {
         display.innerText = `[${colorAzar.toUpperCase()}]: "${fraseAzar}"`;
+        display.style.opacity = 1;
+    }, 200);
+}
+
+function mostrarEnPantalla(color, frase) {
+    const display = document.getElementById('frase-display');
+    display.style.opacity = 0;
+
+    setTimeout(() => {
+        display.innerHTML = '<span style = "text-transform: uppercase; font-weight: bold;">[${color}]:</span> "${frase}"';
         display.style.opacity = 1;
     }, 200);
 }
